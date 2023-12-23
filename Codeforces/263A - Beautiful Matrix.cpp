@@ -1,40 +1,31 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 #define REP(i, a, b) for(int i=a; i<b; i++)
 using namespace std;
 
 int main(){
-    int x = 0, y = 0;
-    int result;
-    int arr[5][5] = {
-		{ 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0 },
-        { 0, 0, 0, 0, 0 }
-	};
+    int arr1[5][5];
+    int x, y;
     REP(i, 0, 5){
         REP(j, 0, 5){
-            cin>>arr[i][j];
-            if(arr[i][j] == 1){
+            cin>>arr1[i][j];
+            if(arr1[i][j] == 1){
                 x = i;
                 y = j;
             }
         }
     }
-    int part1 = 0, part2 = 0;
-    if(x>2){
-        part1 = (x-2);
+    int result = 0;
+    if(x<=2 && y<=2){
+        result = (2-x) + (2-y);
     }
-    else if(x<2){
-        part1 = (2-x);
+    if(x>=2 && y>=2){
+        result = (x-2) + (y-2);
     }
-    if(y>2){
-        part2 = (y-2);
+    if(x>=2 && y<=2){
+        result = (x-2) + (2-y);
     }
-    else if(y<2){
-        part2 = (2-y);
+    if(x<=2 && y>=2){
+        result = (2-x) + (y-2);
     }
-    
-    result = part1 + part2;
     cout<<result;
 }
